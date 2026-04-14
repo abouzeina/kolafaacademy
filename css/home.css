@@ -1,0 +1,738 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================== 1. Hero Section (The Arch & Book) ================== */
+.hero {
+  position: relative;
+  min-height: min(100vh, 920px);
+  background-color: var(--color-base-paper);
+  display: flex;
+  align-items: center;
+  padding-top: 96px;
+  overflow: hidden;
+}
+
+.heroWatermark {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100vw;
+  height: 100%;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(11,107,53, 0.02) 10px, rgba(11,107,53, 0.02) 12px);
+  pointer-events: none;
+  animation: bg-drift 20s linear infinite alternate;
+}
+
+@keyframes bg-drift {
+  0% { transform: translateX(0) scale(1.05); }
+  100% { transform: translateX(5%) scale(1.1); }
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTextContainer {
+  flex: 1;
+  max-width: 680px;
+  position: relative;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.2;
+  color: var(--color-primary-dark);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-primary);
+  opacity: 0.85;
+  line-height: 1.8;
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 24px;
+}
+
+.heroImageContainer {
+  flex: 1;
+  min-height: 420px;
+  height: 75vh;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroImageMask {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--arch-radius) var(--arch-radius) 0 0;
+  background: linear-gradient(180deg, var(--color-primary-dark), var(--color-primary-darker));
+  box-shadow: var(--shadow-deep-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroImageMask::after {
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+  border: 1px solid rgba(200, 166, 0, 0.3);
+  border-radius: calc(var(--arch-radius) - 20px) calc(var(--arch-radius) - 20px) 0 0;
+  pointer-events: none;
+}
+
+.heroImageMask img {
+  animation: hero-image-scale 4s var(--easing-luxury) forwards;
+}
+
+@keyframes hero-image-scale {
+  from { transform: scale(1.1); filter: brightness(0.9); }
+  to { transform: scale(1); filter: brightness(1); }
+}
+
+
+/* ================== 2. Authority Section (Golden Seal) ================== */
+.authority {
+  margin-top: var(--section-spacing);
+  background-color: var(--color-primary-darker);
+  position: relative;
+  padding: clamp(72px, 8vw, 120px) 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 40px;
+}
+
+.authCenterSeal {
+  width: 200px;
+  height: 200px;
+  background: var(--color-gold-luxury);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-darker);
+  box-shadow: 0 0 50px rgba(200, 166, 0, 0.2);
+  z-index: 2;
+  position: relative;
+}
+
+.sealNumber {
+  font-family: var(--font-alexandria);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sealText {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.authStats {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  gap: 24px;
+}
+
+.statBlock {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  padding: 40px 32px;
+  border-radius: var(--soft-radius);
+  color: white;
+  width: min(320px, 100%);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.statBlockTitle {
+  font-size: 3rem;
+  font-family: var(--font-alexandria);
+  margin-bottom: 12px;
+  color: var(--color-gold-luxury);
+  line-height: 1;
+}
+
+.statBlockDesc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+
+/* ================== 3. Pathways Section (Gateways) ================== */
+.pathways {
+  margin-top: var(--section-spacing);
+  padding: 0 32px;
+}
+
+.gatewaysContainer {
+  display: flex;
+  min-height: 600px;
+  height: auto;
+  gap: 24px;
+  max-width: 1300px;
+  margin: 60px auto 0;
+}
+
+.gateway {
+  flex: 1;
+  border-radius: 200px 200px 0 0;
+  box-shadow: var(--shadow-deep-green);
+  transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(11, 107, 53, 0.05);
+}
+
+/* Add an elegant inner frame to look like a door */
+.gateway::before {
+  content: '';
+  position: absolute;
+  top: 16px; left: 16px; right: 16px; bottom: -10px;
+  border: 1px solid rgba(200, 166, 0, 0.2);
+  border-radius: 184px 184px 0 0; /* 200 - 16 */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gateway:hover {
+  flex: 2;
+}
+
+.gatewayContent {
+  padding: 64px 24px 28px;
+  text-align: center;
+  transform: translateY(40px);
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.gateway:hover .gatewayContent {
+  transform: translateY(0);
+}
+
+.gatewayTitle {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  font-family: var(--font-alexandria);
+}
+
+/* Modifiers for Light & Dark Gateways */
+.gatewayLight {
+  background-color: var(--color-surface);
+}
+.gatewayLight .gatewayContent {
+  background: linear-gradient(0deg, var(--color-surface) 60%, transparent);
+}
+.gatewayLight .gatewayTitle {
+  color: var(--color-primary-dark);
+}
+
+.gatewayDark {
+  background-color: var(--color-primary-dark);
+}
+.gatewayDark .gatewayContent {
+  background: linear-gradient(0deg, var(--color-primary-dark) 60%, transparent);
+}
+.gatewayDark .gatewayTitle {
+  color: var(--color-gold-luxury);
+}
+
+/* Description logic */
+.gatewayDesc {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  line-height: 1.8;
+  height: 0;
+  overflow: hidden;
+}
+
+.gatewayLight .gatewayDesc {
+  color: var(--color-text-muted);
+}
+.gatewayDark .gatewayDesc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gateway:hover .gatewayDesc {
+  opacity: 1;
+  height: auto;
+}
+
+/* ================== 4. Programs Section (Modern Grid) ================== */
+.programs {
+  margin-top: var(--section-spacing);
+  padding: clamp(72px, 8vw, 120px) var(--container-padding);
+  background-color: var(--color-soft-shade);
+}
+
+.home-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1300px;
+  margin: 60px auto 0;
+}
+
+.home-program-card {
+  background-color: var(--color-surface);
+  border-radius: var(--soft-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  border: 1px solid rgba(11, 107, 53, 0.05);
+}
+
+.home-program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover-green);
+}
+
+.home-card-image {
+  height: clamp(200px, 25vw, 220px);
+  overflow: hidden;
+}
+
+.home-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.home-program-card:hover .home-card-image img {
+  transform: scale(1.05);
+}
+
+.home-card-content {
+  padding: 32px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.home-card-title {
+  font-size: 1.5rem;
+  font-family: var(--font-alexandria);
+  color: var(--color-primary-dark);
+  margin-bottom: 16px;
+}
+
+.home-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.home-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-primary-dark);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  font-size: 0.9rem;
+}
+
+.home-card-btn:hover {
+  background-color: var(--color-gold-luxury);
+  color: var(--color-primary-darker);
+  transform: translateX(-3px);
+  box-shadow: 0 5px 15px rgba(200, 166, 0, 0.2);
+}
+
+.home-card-btn:active {
+  transform: scale(0.97) translateX(-2px);
+}
+
+
+/* ================== 6. Final CTA (Grand Archway) ================== */
+.ctaSection {
+  margin-top: var(--section-spacing);
+  min-height: 620px;
+  background-color: var(--color-base-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archwayDoor {
+  width: 90vw;
+  max-width: 900px;
+  min-height: 440px;
+  background: var(--color-primary-darker);
+  border-radius: 500px 500px 0 0;
+  box-shadow: inset 0 20px 80px rgba(0,0,0,0.5), 0 -20px 60px rgba(11, 107, 53, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: clamp(96px, 12vw, 160px) 40px 80px;
+  color: white;
+  border: 2px solid var(--color-gold-luxury);
+  border-bottom: none;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 1279px) {
+  .heroContent {
+    gap: 40px;
+  }
+
+  .home-programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .heroContent { flex-direction: column; text-align: center; }
+  .heroTextContainer,
+  .heroSubtitle {
+    max-width: 100%;
+  }
+  .heroImageContainer {
+    width: 100%;
+    min-height: 340px;
+    height: 50vh;
+    justify-content: center;
+  }
+  .heroImageMask { border-radius: 40px; height: 100%; }
+  .authority {
+    gap: 28px;
+  }
+  .authContainerWrapper {
+    max-width: 100% !important;
+  }
+  .authStats {
+    position: static;
+    flex-direction: column;
+  }
+  .authCenterSeal {
+    width: 160px;
+    height: 160px;
+    order: -1;
+  }
+  .gatewaysContainer { flex-direction: column; min-height: unset; }
+  .gateway { border-radius: 40px; min-height: 260px; }
+  .gateway::before { border-radius: 24px; }
+  .gatewayContent { transform: none; padding-bottom: 24px; }
+  .gatewayDesc { opacity: 1; height: auto; }
+  .gateway:hover { flex: 1; }
+  .mosaicGrid { display: flex; flex-direction: column; }
+}
+/* ================== 5. Testimonials Section (Premium Slider) ================== */
+.testimonials {
+  margin-top: var(--section-spacing);
+  padding: 120px 32px;
+  background-color: var(--color-base-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialsContainer {
+  max-width: 1000px;
+  margin: 60px auto 0;
+  position: relative;
+}
+
+.sliderWrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 72px;
+}
+
+.testimonialsTrack {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.testimonialItem {
+  flex: 0 0 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.testimonialCard {
+  background-color: var(--color-surface);
+  border-radius: var(--soft-radius);
+  padding: 64px 48px;
+  text-align: center;
+  box-shadow: var(--shadow-deep-green);
+  border: 1px solid rgba(11, 107, 53, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.testimonialStars {
+  color: var(--color-gold-luxury);
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+}
+
+.testimonialText {
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  max-width: 800px;
+  position: relative;
+}
+
+.testimonialText::before,
+.testimonialText::after {
+  content: '"';
+  font-family: var(--font-alexandria);
+  font-size: 3rem;
+  color: var(--color-gold-luxury);
+  opacity: 0.2;
+  position: absolute;
+}
+
+.testimonialText::before { right: -40px; top: -10px; }
+.testimonialText::after { left: -40px; bottom: -30px; }
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.authorAvatar {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-soft-shade);
+  color: var(--color-primary-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: 2px solid var(--color-gold-luxury);
+}
+
+.authorName {
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary-dark);
+  text-align: right;
+}
+
+.authorCountry {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* Slider Controls */
+.sliderArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s var(--easing-luxury);
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.sliderArrow:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+  box-shadow: 0 10px 20px rgba(11, 107, 53, 0.2);
+}
+
+.sliderArrow.prev { right: 16px; }
+.sliderArrow.next { left: 16px; }
+
+.sliderDots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #D1D8D4;
+  cursor: pointer;
+  transition: all 0.3s var(--easing-luxury);
+}
+
+.dot.active {
+  background-color: var(--color-gold-luxury);
+  transform: scale(1.3);
+}
+
+/* Footer Section */
+.testimonialsFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.btn-all-reviews {
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: 1px solid rgba(11, 107, 53, 0.2);
+  transition: all 0.3s var(--easing-luxury);
+}
+
+.btn-all-reviews:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 1023px) {
+  .sliderArrow.prev { right: 10px; }
+  .sliderArrow.next { left: 10px; }
+  .sliderArrow { background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    padding-top: 92px;
+    padding-bottom: 40px;
+  }
+
+  .heroContent {
+    gap: 28px;
+  }
+
+  .heroActions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroImageContainer {
+    min-height: 260px;
+    height: 38vh;
+  }
+
+  .pathways,
+  .testimonials {
+    padding-inline: var(--container-padding);
+  }
+
+  .home-programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialItem {
+    padding-inline: 0;
+  }
+
+  .testimonials { padding: 80px 24px; }
+  .testimonialCard { padding: 48px 32px; }
+  .testimonialText { font-size: 1.15rem; }
+  .testimonialText::before, .testimonialText::after { display: none; }
+  .sliderWrapper { padding: 10px 52px; }
+  .sliderArrow { width: 40px; height: 40px; }
+  .archwayDoor {
+    width: 100%;
+    min-height: 360px;
+    padding: 72px 24px 56px;
+    border-radius: 80px 80px 0 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .authority {
+    padding-inline: 16px;
+  }
+
+  .statBlock {
+    padding: 28px 20px;
+  }
+
+  .statBlockTitle {
+    font-size: 2.4rem;
+  }
+
+  .sliderWrapper {
+    padding-inline: 44px;
+  }
+
+  .sliderArrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .testimonialsFooter,
+  .heroActions .btn-whatsapp-global {
+    width: 100%;
+  }
+}

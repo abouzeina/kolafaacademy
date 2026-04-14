@@ -1,0 +1,317 @@
+/* ================== Hero Section ================== */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: var(--color-primary-dark);
+  color: white;
+  overflow: hidden;
+}
+
+.heroContent {
+  width: 100%;
+  padding: clamp(96px, 12vw, 120px) 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: clamp(2.3rem, 5.4vw, 4.5rem);
+  font-family: var(--font-alexandria);
+  color: var(--color-gold-luxury);
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.heroDesc {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0;
+  max-width: 800px;
+}
+
+/* ================== Programs Grid ================== */
+.programs-section {
+  padding: clamp(64px, 8vw, 80px) 24px;
+  background-color: var(--color-base-paper);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.program-card {
+  background: white;
+  border-radius: var(--soft-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  border: 1px solid rgba(11, 107, 53, 0.05);
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover-green);
+}
+
+.card-image-wrapper {
+  height: clamp(210px, 28vw, 250px);
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.program-card:hover .card-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: clamp(24px, 3vw, 32px);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-family: var(--font-alexandria);
+  color: var(--color-primary-dark);
+  margin-bottom: 16px;
+}
+
+.card-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* ================== Detail Page Styles ================== */
+.detail-hero {
+  padding: 120px 24px 80px;
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
+.detail-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 60px);
+  align-items: center;
+}
+
+.detail-hero-image {
+  border-radius: var(--arch-radius) var(--sharp-radius) var(--arch-radius) var(--sharp-radius);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border: 2px solid var(--color-gold-luxury);
+}
+
+.detail-hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.detail-hero-title {
+  font-size: clamp(2rem, 4.8vw, 3.5rem);
+  font-family: var(--font-alexandria);
+  color: var(--color-gold-luxury);
+  margin-bottom: 24px;
+}
+
+.detail-hero-desc {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Tabs Section */
+.tabs-section {
+  padding: clamp(56px, 8vw, 80px) 24px;
+  background-color: white;
+}
+
+.tabs-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(11, 107, 53, 0.1);
+  padding-bottom: 16px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: none;
+  background: none;
+  font-family: var(--font-ibm-plex-sans-arabic);
+  font-weight: 600;
+  font-size: clamp(0.98rem, 1.8vw, 1.1rem);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-gold-luxury);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+  color: var(--color-primary-dark);
+}
+
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeInLuxury 0.8s var(--easing-luxury) forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-pane-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-family: var(--font-alexandria);
+  color: var(--color-primary-dark);
+  margin-bottom: 24px;
+}
+
+.tab-pane-text {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.9;
+  color: var(--color-text-primary);
+}
+
+.tab-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+}
+
+.tab-list li {
+  margin-bottom: 16px;
+  padding-right: 32px;
+  position: relative;
+}
+
+.tab-list li::before {
+  content: '✓';
+  position: absolute;
+  right: 0;
+  color: var(--color-gold-luxury);
+  font-weight: bold;
+}
+
+@keyframes fadeInLuxury {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 1279px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .detail-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .detail-hero-image {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .detail-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .tabs-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 42vh;
+  }
+
+  .detail-hero {
+    padding-top: 96px;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+  }
+
+  .tab-list li {
+    padding-right: 26px;
+  }
+}
+
+@media (max-width: 479px) {
+  .heroContent,
+  .tabs-section,
+  .programs-section {
+    padding-inline: 16px;
+  }
+
+  .card-content {
+    padding: 22px 18px;
+  }
+}

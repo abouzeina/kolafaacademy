@@ -1,0 +1,419 @@
+/* ================== General Layout ================== */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: var(--color-base-paper);
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 96px 24px 40px;
+}
+
+/* Watermark geometry */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  border-radius: var(--arch-radius) 0 var(--arch-radius) 0;
+  border: 4px solid var(--color-primary-dark);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroTitle {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-family: var(--font-alexandria);
+  color: var(--color-primary-dark);
+  margin-bottom: 24px;
+}
+
+.heroDesc {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  color: var(--color-text-muted);
+  max-width: 650px;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+
+/* ================== New Centered Pricing Section ================== */
+.pricing-section {
+  padding: clamp(56px, 8vw, 80px) 24px;
+  background-color: var(--color-base-paper);
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pricing-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  color: var(--color-primary-dark);
+  margin-bottom: 16px;
+}
+
+.pricing-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+}
+
+/* Duration Toggle */
+.duration-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.duration-toggle {
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border: 1px solid rgba(11, 107, 53, 0.1);
+}
+
+.toggle-btn {
+  border: none;
+  background: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-family: var(--font-ibm-plex-sans-arabic);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--color-primary-dark);
+}
+
+.toggle-btn.active {
+  background-color: var(--color-primary-dark);
+  color: white;
+  box-shadow: 0 4px 15px rgba(11, 107, 53, 0.3);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: white;
+  border-radius: var(--soft-radius);
+  padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(11, 107, 53, 0.05);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover-green);
+}
+
+.card-plan-name {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+.card-price-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.currency-symbol {
+  font-size: 2rem;
+  color: var(--color-gold-luxury);
+  font-weight: 700;
+}
+
+.price-value {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.card-other-currencies {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.currency-item {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+}
+
+.card-features li {
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+  font-size: clamp(0.98rem, 1.8vw, 1.05rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card-features li::before {
+  content: '✓';
+  color: var(--color-secondary-green);
+  font-weight: bold;
+}
+
+.card-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 1rem !important;
+  padding: 14px 20px !important;
+}
+
+/* Responsiveness */
+@media (max-width: 1279px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero::after {
+    width: min(800px, 88vw);
+    height: min(800px, 88vw);
+  }
+
+  .deanCtaSection {
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 40px 0 40px 0;
+    padding: 72px 24px;
+  }
+
+  .deanImagePlaceholder,
+  .deanContent {
+    width: 100%;
+  }
+
+  .folioGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .duration-toggle {
+    width: 100%;
+    justify-content: center;
+    border-radius: 24px;
+  }
+
+  .toggle-btn {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 120px;
+  }
+
+  .folioHeaderButton {
+    padding: 24px 0;
+    font-size: 1.15rem;
+  }
+
+  .deanTitle {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .deanSubtitle {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .deanImagePlaceholder {
+    height: 320px;
+  }
+}
+
+@media (max-width: 479px) {
+  .toggle-btn {
+    flex-basis: 100%;
+  }
+}
+
+/* ================== Expandable Folio ================== */
+.folioSection {
+  margin-top: var(--section-spacing);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+
+.folioItem {
+  border-bottom: 1px solid rgba(11, 107, 53, 0.1);
+}
+
+.folioHeaderButton {
+  width: 100%;
+  text-align: right;
+  background: none;
+  border: none;
+  padding: 32px 0;
+  font-family: var(--font-alexandria);
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color var(--transition-normal), opacity var(--transition-normal);
+}
+
+.folioHeaderButton:hover {
+  color: var(--color-gold-luxury);
+}
+
+.folioContentWrapper {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height var(--transition-normal), opacity var(--transition-normal);
+}
+
+.folioContentWrapper.open {
+  opacity: 1;
+}
+
+.folioContent {
+  padding-bottom: 32px;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+
+.chevron-icon {
+  transition: transform 0.3s ease;
+}
+.folioHeaderButton.active .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.folioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.featureBox {
+  background-color: var(--color-base-paper);
+  padding: 24px;
+  border-radius: var(--soft-radius);
+  border-right: 4px solid var(--color-secondary-green);
+}
+
+.featureBoxTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--color-primary-dark);
+}
+
+/* ================== The Dean's Desk CTA ================== */
+.deanCtaSection {
+  margin-top: var(--section-spacing);
+  background-color: var(--color-soft-shade);
+  border-radius: var(--arch-radius) 0 var(--arch-radius) 0;
+  padding: 120px 24px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.deanImagePlaceholder {
+  flex: 1;
+  height: 500px;
+  background-color: var(--color-primary-darker);
+  border-radius: var(--arch-radius) var(--sharp-radius) var(--arch-radius) var(--sharp-radius);
+  box-shadow: var(--shadow-deep-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.deanImagePlaceholder::after {
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+  border: 1px solid rgba(200, 166, 0, 0.3);
+  border-radius: calc(var(--arch-radius) - 20px) var(--sharp-radius) calc(var(--arch-radius) - 20px) var(--sharp-radius);
+}
+
+.deanContent {
+  flex: 1.2;
+}
+
+.deanTitle {
+  font-size: 3rem;
+  font-family: var(--font-alexandria);
+  color: var(--color-primary-dark);
+  margin-bottom: 24px;
+}
+
+.deanSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 48px;
+}
+

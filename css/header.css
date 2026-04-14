@@ -1,0 +1,424 @@
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  z-index: 1000; /* Increased to be above dropdowns and other elements */
+  transition: all 0.4s ease;
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: var(--color-base-paper);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  height: 70px;
+}
+
+.unscrolled {
+  background-color: var(--color-base-paper); /* keeping solid for now, or transparent if needed */
+  border-bottom: 1px solid rgba(11, 107, 53, 0.05);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%; /* Important for dropdown hit area */
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0; right: 0;
+  height: 2px;
+  background-color: var(--color-gold-luxury);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.navLink:hover::after, .activeLink::after {
+  transform: scaleX(1);
+}
+
+.activeLink {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+/* ================== Dropdown Menu ================== */
+.has-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.has-dropdown .navLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-icon {
+  width: 12px;
+  height: 12px;
+  transition: transform var(--transition-normal);
+  color: var(--color-text-muted);
+}
+
+.has-dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary-dark);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 260px;
+  background-color: var(--color-surface);
+  border-radius: var(--soft-radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(11, 107, 53, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+  padding: 12px 0;
+  z-index: 1000;
+  list-style: none;
+  margin-top: 0px;
+}
+
+/* Pseudo-element to bridge the gap between header and menu */
+.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  padding: 0;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 12px 20px;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  text-align: right;
+  border-right: 3px solid transparent;
+}
+
+.dropdown-link:hover {
+  background-color: rgba(11, 107, 53, 0.03);
+  color: var(--color-primary-dark);
+  border-right-color: var(--color-gold-luxury);
+  padding-right: 24px;
+}
+
+/* ================== Actions ================== */
+.desktopActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.fbNavBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: #1877F2;
+  border: 1px solid rgba(11, 107, 53, 0.1);
+  transition: all 0.3s ease;
+}
+
+.fbNavBtn:hover {
+  background-color: #1877F2;
+  color: white;
+  border-color: #1877F2;
+  transform: translateY(-2px);
+}
+
+.header-wa-btn {
+  background-color: #25D366;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+  padding: 10px 24px !important;
+  font-size: 1rem !important;
+}
+
+.header-wa-btn:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  color: white;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mobileMenuBtn:hover {
+  background-color: rgba(11, 107, 53, 0.08);
+}
+
+.mobileNavOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 64, 31, 0.42);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  z-index: 999;
+}
+
+.mobileNavOverlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobileNavPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(100%, 360px);
+  height: 100%;
+  background-color: var(--color-surface);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  overflow-y: auto;
+}
+
+.mobileNavOverlay.is-open .mobileNavPanel {
+  transform: translateX(0);
+}
+
+.mobileNavHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(11, 107, 53, 0.08);
+}
+
+.mobileNavClose {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(11, 107, 53, 0.08);
+  color: var(--color-primary-dark);
+  cursor: pointer;
+}
+
+.mobileNavLinks,
+.mobileNavPrograms {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobileNavLink,
+.mobileNavPrograms a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background-color: var(--color-base-paper);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.mobileNavLink.is-active,
+.mobileNavPrograms a.is-active {
+  background-color: rgba(11, 107, 53, 0.1);
+  color: var(--color-primary-dark);
+}
+
+.mobileNavSectionTitle {
+  font-family: var(--font-alexandria);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.mobileNavActions {
+  margin-top: auto;
+  display: grid;
+  gap: 12px;
+}
+
+.mobileNavSocial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 14px;
+  background: #1877F2;
+  color: #fff;
+  font-weight: 600;
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 1279px) {
+  .nav {
+    gap: 14px;
+  }
+
+  .navLink {
+    font-size: 0.9rem;
+  }
+
+  .header-wa-btn {
+    padding-inline: 18px !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header {
+    height: 74px;
+  }
+
+  .scrolled {
+    height: 66px;
+  }
+
+  .nav,
+  .desktopActions {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: inline-flex;
+  }
+
+  .logo {
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .logo span {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    height: 70px;
+  }
+
+  .header-container {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 0.88rem;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 479px) {
+  .logo span {
+    max-width: 165px;
+  }
+
+  .mobileNavPanel {
+    padding: 16px;
+  }
+}
