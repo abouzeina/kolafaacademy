@@ -770,6 +770,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === overlay) closeModal();
     });
 
+    // Inject Desktop Free Trial Button into Header
+    const desktopActions = document.querySelectorAll('.desktopActions');
+    desktopActions.forEach(actions => {
+      if (!actions.querySelector('.btn-free-trial-header')) {
+        const btn = document.createElement('button');
+        btn.className = 'btn-free-trial-header';
+        btn.setAttribute('aria-label', isEn ? 'Book Free Trial' : 'احجز الحصة المجانية');
+        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> ${isEn ? 'Free Trial' : 'حجز حصة مجانية'}`;
+        
+        const langBtn = actions.querySelector('.lang-switch-btn');
+        if (langBtn) {
+          actions.insertBefore(btn, langBtn);
+        } else {
+          actions.prepend(btn);
+        }
+
+        btn.addEventListener('click', openModal);
+      }
+    });
+
     // Form Submit (WhatsApp)
     form.addEventListener('submit', (e) => {
       e.preventDefault();

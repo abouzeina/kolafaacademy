@@ -389,6 +389,7 @@
   position: absolute;
   top: 20px;
   left: 20px; /* Left because RTL */
+  z-index: 10;
   background: rgba(11, 107, 53, 0.1);
   color: var(--color-primary-dark);
   border: none;
@@ -489,12 +490,36 @@ textarea.ft-input {
   }
 }
 
+@media (min-width: 1024px) {
+  .btn-free-trial-float {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .btn-free-trial-float {
+    top: auto;
+    bottom: 24px;
+    left: 24px;
+    transform: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 20px rgba(200, 166, 0, 0.4);
+    border: none;
+    z-index: 99;
+  }
+}
+
+[dir="ltr"] @media (max-width: 1023px) {
+  .btn-free-trial-float {
+    left: auto;
+    right: 24px;
+  }
+}
+
 @media (max-width: 767px) {
   .ft-form-side {
     padding: 30px 20px;
-  }
-  .btn-free-trial-float {
-    padding: 12px 16px;
-    font-size: 0.95rem;
   }
 }

@@ -212,6 +212,16 @@
   gap: 40px;
 }
 
+.authContainerWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
 .authCenterSeal {
   width: 200px;
   height: 200px;
@@ -541,7 +551,8 @@
     gap: 28px;
   }
   .authContainerWrapper {
-    max-width: 100% !important;
+    flex-direction: column;
+    gap: 32px;
   }
   .authStats {
     position: static;

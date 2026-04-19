@@ -454,3 +454,26 @@ body.mobile-menu-open {
     padding: 16px;
   }
 }
+
+.btn-free-trial-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-gold-luxury);
+  color: var(--color-primary-darker);
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(200, 166, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 166, 0, 0.2);
+}
+
+.btn-free-trial-header:hover {
+  transform: translateY(-2px);
+  background-color: #FFE066;
+  box-shadow: 0 6px 20px rgba(200, 166, 0, 0.3);
+}
