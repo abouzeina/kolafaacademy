@@ -25,7 +25,7 @@
     <div class="container header-container">
       <a href="index.html" class="logo">
         <!-- ضع مسار لوجو الأكاديمية هنا داخل علامات التنصيص في src -->
-        <img src="assets/logo.jpg" alt="شعار أكاديمية الخلفاء الراشدين" class="logo-icon">
+        <img src="assets/logo.webp" alt="شعار أكاديمية الخلفاء الراشدين" class="logo-icon" fetchpriority="high">
         <span>أكاديمية الخلفاء الراشدين</span>
       </a>
       <nav class="nav">
@@ -48,9 +48,11 @@
 
         <a href="pricing.html" class="navLink activeLink">الباقات والرسوم</a>
         <a href="legacy.html" class="navLink">صرح الخلفاء</a>
-        <a href="teachers.html" class="navLink">هيئة التدريس</a>
+        <a href="teachers.html" class="navLink">من نحن</a>
+        <a href="contact.html" class="navLink">تواصل معنا</a>
       </nav>
       <div class="desktopActions">
+          <a href="en/pricing.html" class="lang-switch-btn" style="color: var(--color-gold-luxury); font-weight: bold; text-decoration: none; font-family: 'Outfit', sans-serif;">English</a>
         <a href="https://www.facebook.com/markazkolfa" target="_blank" rel="noopener noreferrer" class="fbNavBtn" aria-label="تابعنا على فيسبوك">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -256,65 +258,55 @@
       </div>
       <div class="deanImagePlaceholder">
         <!-- ضع مسار الصورة هنا داخل علامات التنصيص في src -->
-        <img src="assets/1764004502255.JPG" alt="صورة مكتب القبول" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="assets/logo.webp" alt="صورة مكتب القبول" style="width: 100%; height: 100%; object-fit: cover; display: block;" fetchpriority="high">
       </div>
     </section>
 
   </main>
-
-  <footer class="footer">
-    <div class="watermark"></div>
-    <div class="container">
-      <div class="grid">
-        <div class="brand">
-          <div class="logo-footer">أكاديمية الخلفاء الراشدين</div>
-          <p class="desc">
-            مؤسسة تعليمية قرآنية راسخة، تمتد جذورها لنحو عشرين عاماً 
-            في خدمة كتاب الله وعلوم اللغة العربية، عبر فروعنا الفعلية وفصولنا الافتراضية.
-          </p>
+    <footer class="footer">
+      <div class="watermark"></div>
+      <div class="container">
+        <div class="grid">
+          <div class="brand">
+            <div class="logo-footer">أكاديمية الخلفاء الراشدين</div>
+            <p class="desc">مؤسسة تعليمية قرآنية راسخة، تمتد جذورها لنحو عشرين عاماً في خدمة كتاب الله وعلوم اللغة العربية.</p>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">خريطة الأكاديمية</h4>
+            <ul class="links">
+              <li><a href="programs.html" class="link">البرامج الأكاديمية</a></li>
+              <li><a href="pricing.html" class="link">التسجيل والرسوم</a></li>
+              <li><a href="legacy.html" class="link">صرح الخلفاء</a></li>
+              <li><a href="teachers.html" class="link">من نحن</a></li>
+            </ul>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">مسارات القبول</h4>
+            <ul class="links">
+              <li><a href="programs.html" class="link">تأسيس الأطفال</a></li>
+              <li><a href="programs.html" class="link">خطط البالغين</a></li>
+              <li><a href="programs.html" class="link">الإجازات والمتقدمين</a></li>
+              <li><a href="programs.html" class="link">الناطقين بغير العربية</a></li>
+            </ul>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">تواصل معنا</h4>
+            <ul class="links">
+              <li class="link tel-text" style="direction: ltr; text-align: right">+20 155 650 9755</li>
+              <li>
+                <a href="https://wa.me/201556509755?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global full-width" style="margin-top: 16px; padding: 12px 16px; font-size: 1rem">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  تواصل عبر واتساب
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="linksCol">
-          <h4 class="colTitle">خريطة الأكاديمية</h4>
-          <ul class="links">
-            <li><a href="programs.html" class="link">البرامج الأكاديمية</a></li>
-            <li><a href="pricing.html" class="link">التسجيل والرسوم</a></li>
-            <li><a href="legacy.html" class="link">صرح الخلفاء</a></li>
-            <li><a href="teachers.html" class="link">الهيئة التدريسية</a></li>
-          </ul>
-        </div>
-        <div class="linksCol">
-          <h4 class="colTitle">مسارات القبول</h4>
-          <ul class="links">
-            <li><a href="programs.html" class="link">تأسيس الأطفال</a></li>
-            <li><a href="programs.html" class="link">خطط البالغين</a></li>
-            <li><a href="programs.html" class="link">الإجازات والمتقدمين</a></li>
-            <li><a href="programs.html" class="link">الناطقين بغير العربية</a></li>
-          </ul>
-        </div>
-        <div class="linksCol">
-          <h4 class="colTitle">تواصل معنا</h4>
-          <ul class="links">
-            <li class="link tel-text" style="direction: ltr; text-align: right;">+20 155 650 9755</li>
-            <li>
-               <a href="https://wa.me/201556509755?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D8%AE%D9%84%D9%81%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B4%D8%AF%D9%8A%D9%86." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global full-width" style="margin-top: 16px; padding: 12px 16px; font-size: 1rem;">
-                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                 تواصل عبر واتساب
-               </a>
-            </li>
-            <li>
-               <a href="https://www.facebook.com/markazkolfa" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 8px; background: transparent; border: 1px solid #1877F2; color: #1877F2; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; width: 100%;">
-                 تابع أنشطة الأكاديمية عبر صفحتنا الرسمية
-               </a>
-            </li>
-          </ul>
+        <div class="bottomBar">
+          <div>جميع الحقوق محفوظة © 2026 - أكاديمية الخلفاء الراشدين</div>
         </div>
       </div>
-      <div class="bottomBar">
-        <div>جميع الحقوق محفوظة © 2026 - أكاديمية الخلفاء الراشدين</div>
-        <div>تم التطوير كصرح مؤسسي متكامل للتعليم القرآني</div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
     <!-- ================= FLOATING WA ================= -->
@@ -341,6 +333,6 @@
       </svg>
     </a>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

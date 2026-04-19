@@ -172,6 +172,14 @@
   flex-shrink: 0;
 }
 
+[dir="rtl"] .lang-switch-btn {
+  order: 2; /* Moves to the far left visually in RTL */
+}
+
+[dir="ltr"] .lang-switch-btn {
+  order: 2; /* Moves to the far right of the actions group in LTR */
+}
+
 .fbNavBtn {
   display: flex;
   align-items: center;
@@ -331,6 +339,30 @@
   margin-top: auto;
   display: grid;
   gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(11, 107, 53, 0.08);
+}
+
+.mobile-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 14px;
+  background: rgba(200, 166, 0, 0.12);
+  color: var(--color-gold-luxury);
+  font-weight: 700;
+  font-family: var(--font-alexandria);
+  font-size: 1rem;
+  border: 1px solid rgba(200, 166, 0, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mobile-lang-btn:hover {
+  background: var(--color-gold-luxury);
+  color: var(--color-primary-darker);
 }
 
 .mobileNavSocial {

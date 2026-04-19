@@ -155,6 +155,7 @@
 
 /* ================== Video Library (Staggered Grid) ================== */
 .videoLibrary {
+  margin-top: 20rem;
   padding: clamp(64px, 8vw, 120px) 24px;
   background-color: var(--color-primary-dark); /* Massive dark green bg for contrast */
 }

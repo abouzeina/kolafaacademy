@@ -252,35 +252,69 @@
 @media (max-width: 767px) {
   .pricing-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pricing-section {
+    padding: 40px 12px;
+  }
+
+  .duration-toggle-container {
+    margin-bottom: 32px;
   }
 
   .duration-toggle {
     width: 100%;
     justify-content: center;
-    border-radius: 24px;
+    border-radius: 20px;
+    padding: 6px;
   }
 
   .toggle-btn {
     flex: 1 1 calc(50% - 8px);
-    min-width: 120px;
+    min-width: 100px;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .price-card {
+    padding: 24px 20px;
+  }
+
+  .price-value {
+    font-size: 3rem;
+  }
+
+  .folioSection {
+    padding: 0 12px;
   }
 
   .folioHeaderButton {
-    padding: 24px 0;
-    font-size: 1.15rem;
+    padding: 20px 0;
+    font-size: 1.05rem;
+  }
+
+  .deanCtaSection {
+    padding: 48px 16px;
+    gap: 32px;
+    border-radius: 28px 0 28px 0;
   }
 
   .deanTitle {
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
   }
 
   .deanSubtitle {
-    font-size: 1rem;
-    margin-bottom: 28px;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    line-height: 1.7;
   }
 
   .deanImagePlaceholder {
-    height: 320px;
+    height: clamp(240px, 60vw, 320px);
+    width: clamp(240px, 60vw, 320px);
+    margin: 0 auto;
+    flex: none;
   }
 }
 
@@ -382,21 +416,23 @@
 }
 
 .deanImagePlaceholder {
-  flex: 1;
-  height: 500px;
-  background-color: var(--color-primary-darker);
-  border-radius: var(--arch-radius) var(--sharp-radius) var(--arch-radius) var(--sharp-radius);
+  flex: 0 0 clamp(280px, 35vw, 450px);
+  height: clamp(280px, 35vw, 450px);
+  background-color: white;
+  border-radius: 50%;
   box-shadow: var(--shadow-deep-green);
   position: relative;
   overflow: hidden;
+  border: 6px solid white;
 }
 
 .deanImagePlaceholder::after {
   content: '';
   position: absolute;
-  top: 20px; left: 20px; right: 20px; bottom: 20px;
-  border: 1px solid rgba(200, 166, 0, 0.3);
-  border-radius: calc(var(--arch-radius) - 20px) var(--sharp-radius) calc(var(--arch-radius) - 20px) var(--sharp-radius);
+  top: 4px; left: 4px; right: 4px; bottom: 4px;
+  border: 2px solid rgba(200, 166, 0, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .deanContent {

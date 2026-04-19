@@ -173,5 +173,6 @@ a {
 @media (max-width: 479px) {
   :root {
     --soft-radius: 14px;
+    --section-spacing: clamp(48px, 8vw, 80px);
   }
 }

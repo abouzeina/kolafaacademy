@@ -115,18 +115,34 @@
 
 @media (max-width: 768px) {
   .section-title .title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
   .section-title {
-    margin-bottom: 36px;
+    margin-bottom: 28px;
+    padding-inline: 4px;
+  }
+
+  .section-title .subtitle {
+    font-size: 0.95rem;
   }
 
   .whatsapp-floating {
-    width: 56px;
-    height: 56px;
-    right: 16px;
-    bottom: 16px;
+    width: 52px;
+    height: 52px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .intro-lead {
+    font-size: 1rem;
+    padding-inline: 4px;
+  }
+
+  .btn-free-trial-float {
+    font-size: 0.9rem;
+    padding: 12px 14px 12px 18px;
+    gap: 8px;
   }
 }
 
@@ -176,7 +192,7 @@
 /* Shared visual identity helpers */
 .media-cover {
   width: 100%;
-  height: 100%;
+
   object-fit: cover;
   display: block;
 }
@@ -239,6 +255,7 @@
   transition: all var(--transition-normal);
 }
 
+/* ================== Facebook Button Overrides ================== */
 .btn-facebook-global:hover {
   color: #fff;
   background-color: #1877F2;
@@ -264,5 +281,220 @@
     text-align: center;
     font-size: 0.9rem;
     padding-inline: 14px;
+  }
+}
+
+/* ================== Free Trial Floating Button & Modal ================== */
+
+/* Floating Button */
+.btn-free-trial-float {
+  position: fixed;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--color-gold-luxury), #FFE066);
+  color: var(--color-primary-dark);
+  padding: 16px 20px 16px 24px;
+  border-radius: 0 30px 30px 0;
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 4px 8px 24px rgba(200, 166, 0, 0.4);
+  z-index: 99;
+  cursor: pointer;
+  border: 2px solid white;
+  border-left: none;
+  transition: all 0.3s var(--easing-luxury);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: pulse-gold 2s infinite;
+}
+
+.btn-free-trial-float:hover {
+  transform: translateY(-50%) translateX(10px);
+  box-shadow: 8px 12px 30px rgba(200, 166, 0, 0.6);
+  padding-left: 30px;
+}
+
+@keyframes pulse-gold {
+  0% { box-shadow: 4px 0 0 0 rgba(200, 166, 0, 0.7); }
+  70% { box-shadow: 4px 0 0 15px rgba(200, 166, 0, 0); }
+  100% { box-shadow: 4px 0 0 0 rgba(200, 166, 0, 0); }
+}
+
+/* Modal Overlay */
+.free-trial-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 107, 53, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s var(--easing-luxury);
+  padding: 20px;
+}
+
+.free-trial-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content Box */
+.free-trial-modal {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.5s var(--easing-luxury);
+  position: relative;
+}
+
+.free-trial-modal-overlay.active .free-trial-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal Image Side */
+.ft-image-side {
+  flex: 1;
+  background: var(--color-surface);
+  position: relative;
+  display: none;
+}
+
+.ft-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Modal Form Side */
+.ft-form-side {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+}
+
+.ft-close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Left because RTL */
+  background: rgba(11, 107, 53, 0.1);
+  color: var(--color-primary-dark);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ft-close-btn:hover {
+  background: var(--color-primary-dark);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.ft-title {
+  color: var(--color-primary-dark);
+  font-family: var(--font-alexandria);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.ft-desc {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Form Styles */
+.ft-form-group {
+  margin-bottom: 16px;
+}
+
+.ft-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #F9FAFB;
+}
+
+.ft-input:focus {
+  outline: none;
+  border-color: var(--color-gold-luxury);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(200, 166, 0, 0.1);
+}
+
+.ft-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230b6b35'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 16px center;
+  background-size: 20px;
+}
+
+textarea.ft-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.ft-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--color-primary-dark);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-alexandria);
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ft-submit-btn:hover {
+  background: var(--color-primary-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 107, 53, 0.3);
+}
+
+@media (min-width: 768px) {
+  .ft-image-side {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .ft-form-side {
+    padding: 30px 20px;
+  }
+  .btn-free-trial-float {
+    padding: 12px 16px;
+    font-size: 0.95rem;
   }
 }

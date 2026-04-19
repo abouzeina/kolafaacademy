@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Performance: Preload critical CSS & font -->
+    <link rel="preload" href="css/global.css" as="style">
+    <link rel="preload" href="css/header.css" as="style">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kholafa Academy</title>
+    <meta
+      name="description"
+      content="Kholafa Academy, nearly 20 years of experience in teaching the Holy Quran, Arabic language, and reading."
+    />
+    <link rel="icon" href="../assets/logo.jpg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/en-ltr.css" />
+  <link rel="alternate" hreflang="ar" href="index.html" />
+  <link rel="alternate" hreflang="en" href="index.html" />
+</head>
+  <body class="antialiased">
+    <!-- ================= HEADER ================= -->
+    <header class="header unscrolled" id="mainHeader">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <img
+            src="../assets/logo.webp"
+            alt="Kholafa Academy Logo"
+            class="logo-icon"
+          / fetchpriority="high">
+          <span>Kholafa Academy</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="navLink activeLink">Home</a>
+          
+          <div class="has-dropdown">
+            <a href="programs.html" class="navLink">
+              Programs
+              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="program-reading.html" class="dropdown-link">Reading Basics</a></li>
+              <li><a href="program-tajweed.html" class="dropdown-link">Quran with Tajweed</a></li>
+              <li><a href="program-hifz.html" class="dropdown-link">Quran Memorization</a></li>
+              <li><a href="program-ijazah.html" class="dropdown-link">Quranic Ijazah</a></li>
+              <li><a href="program-arabic.html" class="dropdown-link">Arabic Language</a></li>
+              <li><a href="program-islamic.html" class="dropdown-link">Islamic Studies</a></li>
+            </ul>
+          </div>
+
+          <a href="pricing.html" class="navLink">Pricing</a>
+          <a href="legacy.html" class="navLink">Legacy</a>
+          <a href="teachers.html" class="navLink">About Us</a>
+          <a href="contact.html" class="navLink">Contact</a>
+        </nav>
+
+        <div class="desktopActions">
+          <a
+            href="https://www.facebook.com/markazkolfa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fbNavBtn"
+            aria-label="Follow us on Facebook"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
+            </svg>
+          </a>
+          <a href="../index.html" class="lang-switch-btn" style="color: var(--color-gold-luxury); font-weight: bold; text-decoration: none; font-family: var(--font-ibm-plex-sans-arabic);">عربي</a>
+          <a
+            href="https://wa.me/201556509755?text=Hello"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp-global header-wa-btn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Contact via WhatsApp
+          </a>
+        </div>
+        <button class="mobileMenuBtn" aria-label="Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- 1. HERO SECTION -->
+      <section class="hero animate-on-scroll">
+        <div class="heroWatermark"></div>
+        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+        <div class="heroContent">
+          <div class="heroTextContainer">
+            <div class="badge-online gold fade-up-luxury">
+              <div class="pulsing-dot"></div>
+              On-site study at our branches, available online globally
+            </div>
+            <h1 class="heroTitle fade-up-luxury">Kholafa Academy</h1>
+            <p class="heroSubtitle fade-up-luxury">
+              We provide a solid educational environment dedicated to the recitation and memorization of the Holy Quran, teaching Arabic and Islamic studies by more than 50 certified teachers, with roots extending for nearly 20 years.
+            </p>
+            <div class="heroActions fade-up-luxury heroActions--desktop">
+              <a href="https://wa.me/201556509755?text=Hello" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                Start Your Journey via WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="heroImageContainer fade-up-luxury">
+            <div class="heroImageMask">
+              <img src="../assets/logo.webp" alt="Main Banner Image" class="media-cover" / fetchpriority="high">
+            </div>
+          </div>
+          <!-- Mobile-only CTA below logo -->
+          <div class="heroActions fade-up-luxury heroActions--mobile">
+            <a href="https://wa.me/201556509755?text=Hello" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+              Start Your Journey via WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. AUTHORITY SECTION -->
+      <section class="authority animate-on-scroll">
+        <div class="authContainerWrapper fade-up-luxury" style="position: relative; width: 100%; max-width: 1050px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+          <div class="authStats">
+            <div class="statBlock">
+              <div class="statBlockTitle">50+</div>
+              <div class="statBlockDesc">Certified male & female teachers with Ijazahs</div>
+            </div>
+            <div class="statBlock">
+              <div class="statBlockTitle">6</div>
+              <div class="statBlockDesc">Physical branches & interactive platforms serving thousands</div>
+            </div>
+          </div>
+          <div class="authCenterSeal">
+            <span class="sealNumber">20+</span>
+            <span class="sealText">Years of Experience</span>
+          </div>
+        </div>
+        <div class="fade-up-luxury center-stack">
+          <a href="https://www.facebook.com/markazkolfa" target="_blank" rel="noopener noreferrer" class="btn-facebook-global solid">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            See our achievements on Facebook
+          </a>
+        </div>
+      </section>
+
+      <!-- 3. PATHWAYS SECTION -->
+      <section class="pathways">
+        <div class="section-title center animate-on-scroll">
+          <h2 class="title">Admission & Study Pathways</h2>
+          <div class="divider">
+            <div class="arch"></div><div class="dot"></div><div class="dot muted-dot"></div>
+          </div>
+          <p class="subtitle">Choose the right gateway for you to start your educational journey with the center.</p>
+        </div>
+
+        <div class="gatewaysContainer animate-on-scroll">
+          <div class="gateway gatewayLight fade-up-luxury">
+            <img src="../assets/kids_pathway.webp" alt="Kids Foundation" class="media-cover" style="position: absolute; inset: 0; z-index: 0;" / fetchpriority="high">
+            <div class="gatewayContent">
+              <div class="badge-online"><div class="pulsing-dot"></div>Available Online</div>
+              <h3 class="gatewayTitle">Kids Foundation</h3>
+              <p class="gatewayDesc">A solid foundation in correct recitation and Arabic reading with a specialized educational approach for young ages.</p>
+            </div>
+          </div>
+
+          <div class="gateway gatewayDark fade-up-luxury">
+            <img src="../assets/adults_pathway.webp" alt="Adult Plans" class="media-cover" style="position: absolute; inset: 0; z-index: 0; opacity: 0.8;" / fetchpriority="high">
+            <div class="gatewayContent">
+              <div class="badge-online gold"><div class="pulsing-dot"></div>Available Online</div>
+              <h3 class="gatewayTitle">Adult Plans</h3>
+              <p class="gatewayDesc">Learn the Holy Quran and Arabic from scratch, or develop your skills through flexible schedules.</p>
+            </div>
+          </div>
+
+          <div class="gateway gatewayLight fade-up-luxury">
+            <img src="../assets/advanced_pathway.webp" alt="Advanced Track" class="media-cover" style="position: absolute; inset: 0; z-index: 0;" / fetchpriority="high">
+            <div class="gatewayContent">
+              <div class="badge-online"><div class="pulsing-dot"></div>Available Online</div>
+              <h3 class="gatewayTitle">Advanced Track</h3>
+              <p class="gatewayDesc">For advanced learners seeking connected Sanad Ijazahs in the Holy Quran, and studying Qira'at and its sciences.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PROGRAMS SECTION -->
+      <section class="programs">
+        <div class="section-title center animate-on-scroll">
+          <h2 class="title">Our Certified Academic Programs</h2>
+          <div class="divider">
+            <div class="arch"></div><div class="dot"></div><div class="dot muted-dot"></div>
+          </div>
+          <p class="subtitle">Specialized Sharia and linguistic programs, carefully designed to achieve mastery and deep understanding.</p>
+        </div>
+
+        <div class="home-programs-grid animate-on-scroll">
+          
+          <!-- Card 1: Reading -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-reading.webp" alt="Learn Quran Reading Basics" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Reading Basics</h3>
+              <p class="home-card-desc">Precise foundation in reading Arabic texts correctly and fluently, starting from the proper spelling principles.</p>
+              <a href="program-reading.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Tajweed -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-tajweed.webp" alt="Quran Recitation with Tajweed" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Quran Recitation with Tajweed</h3>
+              <p class="home-card-desc">Improving recitation according to Tajweed rules, focusing on practical application and correct pronunciation of letters.</p>
+              <a href="program-tajweed.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Hifz -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-hifz.webp" alt="Quran Memorization" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Quran Memorization</h3>
+              <p class="home-card-desc">An integrated program to help you memorize the Quran in an organized manner with continuous revision to ensure retention.</p>
+              <a href="program-hifz.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+          <!-- Card 4: Ijazah -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-ijazah.webp" alt="Quranic Ijazah" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Quranic Ijazah</h3>
+              <p class="home-card-desc">A program to obtain a certified Ijazah with a connected Sanad to the Prophet (PBUH).</p>
+              <a href="program-ijazah.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+          <!-- Card 5: Arabic -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-arabic.webp" alt="Arabic Language" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Arabic Language</h3>
+              <p class="home-card-desc">A systematic study of Arabic language sciences for beginners to build a solid linguistic foundation supporting the understanding of the Quranic text.</p>
+              <a href="program-arabic.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+          <!-- Card 6: Islamic -->
+          <article class="home-program-card fade-up-luxury">
+            <div class="home-card-image">
+              <img src="../assets/program-islamic.webp" alt="Islamic Studies" loading="lazy">
+            </div>
+            <div class="home-card-content">
+              <h3 class="home-card-title">Islamic Studies</h3>
+              <p class="home-card-desc">A comprehensive program to learn the basics of Islamic religion (Aqeedah, Fiqh, Seerah) in a simple and correct way.</p>
+              <a href="program-islamic.html" class="home-card-btn">View Program</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 5. TESTIMONIALS SECTION -->
+      <section class="testimonials">
+        <div class="section-title center animate-on-scroll">
+          <h2 class="title">Student Testimonials</h2>
+          <div class="divider">
+            <div class="arch"></div><div class="dot"></div><div class="dot" style="opacity: 0.5"></div>
+          </div>
+          <p class="subtitle">What do our students and parents say about Kholafa Academy?</p>
+        </div>
+
+        <div class="testimonialsContainer animate-on-scroll">
+          <div class="sliderWrapper">
+            <!-- Arrows -->
+            <button class="sliderArrow prev" aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <button class="sliderArrow next" aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <!-- Testimonials Track -->
+            <div class="testimonialsTrack" id="testimonialsTrack">
+              
+              <!-- Review 1 -->
+              <div class="testimonialItem">
+                <div class="testimonialCard">
+                  <div class="testimonialStars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <p class="testimonialText">Alhamdulillah, we found excellent follow-up and genuine care for the student's level at the center. The improvement in recitation and memorization was very clear in a short period.</p>
+                  <div class="testimonialAuthor">
+                    <div class="authorAvatar">O</div>
+                    <div class="authorInfo">
+                      <div class="authorName">Om Abdulrahman</div>
+                      <div class="authorCountry">Egypt</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 2 -->
+              <div class="testimonialItem">
+                <div class="testimonialCard">
+                  <div class="testimonialStars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <p class="testimonialText">The teacher was very patient with my daughter, and the method is suitable for children. There is a clear commitment to schedules and continuous follow-up.</p>
+                  <div class="testimonialAuthor">
+                    <div class="authorAvatar">A</div>
+                    <div class="authorInfo">
+                      <div class="authorName">Abu Youssef</div>
+                      <div class="authorCountry">Saudi Arabia</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 3 -->
+              <div class="testimonialItem">
+                <div class="testimonialCard">
+                  <div class="testimonialStars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <p class="testimonialText">A very unique experience, especially in correcting recitation and organizing the memorization plan. I feel a huge difference in my reading level and confidence.</p>
+                  <div class="testimonialAuthor">
+                    <div class="authorAvatar">M</div>
+                    <div class="authorInfo">
+                      <div class="authorName">Mohamed Khaled</div>
+                      <div class="authorCountry">UAE</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Dots Pagination -->
+          <div class="sliderDots" id="sliderDots">
+            <!-- Dots generated by JS -->
+          </div>
+        </div>
+
+        <div class="testimonialsFooter fade-up-luxury">
+          <a href="#" class="btn-all-reviews">View All Reviews</a>
+        </div>
+      </section>
+
+      <!-- 6. FINAL CTA -->
+      <section class="ctaSection">
+        <div class="archwayDoor">
+          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-family: var(--font-alexandria); margin-bottom: 24px; line-height: 1.3; max-width: 600px;">The Academy Doors Are Open For You</h2>
+          <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 48px; max-width: 550px; line-height: 1.8;">We are happy to hear from you to learn about our locations and class times, and to accurately determine the student's plan.</p>
+          <a href="https://wa.me/201556509755?text=Hello" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+            Contact Us to Register
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="watermark"></div>
+      <div class="container">
+        <div class="grid">
+          <div class="brand">
+            <div class="logo-footer">Kholafa Academy</div>
+            <p class="desc">A firmly established Quranic institution with roots extending for twenty years in serving the Book of Allah and Arabic sciences.</p>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">Academy Sitemap</h4>
+            <ul class="links">
+              <li><a href="programs.html" class="link">Academic Programs</a></li>
+              <li><a href="pricing.html" class="link">Registration & Pricing</a></li>
+              <li><a href="legacy.html" class="link">Legacy</a></li>
+              <li><a href="teachers.html" class="link">About Us</a></li>
+            </ul>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">Admission Paths</h4>
+            <ul class="links">
+              <li><a href="programs.html" class="link">Kids Foundation</a></li>
+              <li><a href="programs.html" class="link">Adult Plans</a></li>
+              <li><a href="programs.html" class="link">Ijazah & Advanced</a></li>
+              <li><a href="programs.html" class="link">Non-Native Speakers</a></li>
+            </ul>
+          </div>
+          <div class="linksCol">
+            <h4 class="colTitle">Contact</h4>
+            <ul class="links">
+              <li class="link tel-text" style="direction: ltr; text-align: left">+20 155 650 9755</li>
+              <li>
+                <a href="https://wa.me/201556509755?text=Hello" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global full-width" style="margin-top: 16px; padding: 12px 16px; font-size: 1rem">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  Contact via WhatsApp
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottomBar">
+          <div>All Rights Reserved © 2026 - Kholafa Academy</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= FLOATING WA ================= -->
+    <a
+      href="https://wa.me/201556509755?text=Hello"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-floating"
+      aria-label="Contact us via WhatsApp"
+    >
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+        ></path>
+      </svg>
+    </a>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

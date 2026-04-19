@@ -18,6 +18,68 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll();
   }
 
+  // 1.1 SET ACTIVE NAV LINK
+  const setActiveNavLink = () => {
+    const activeHref = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navLink, .dropdown-link');
+    
+    navLinks.forEach(link => link.classList.remove('activeLink'));
+
+    let found = false;
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === activeHref) {
+        link.classList.add('activeLink');
+        found = true;
+        
+        const parentDropdown = link.closest('.has-dropdown');
+        if (parentDropdown) {
+          const parentLink = parentDropdown.querySelector('.navLink');
+          if (parentLink) parentLink.classList.add('activeLink');
+        }
+      }
+    });
+
+    if (!found) {
+      const homeLink = document.querySelector('.navLink[href="index.html"]');
+      if (homeLink) homeLink.classList.add('activeLink');
+    }
+  };
+  setActiveNavLink();
+
+  // 1.2 HERO PARTICLES
+  const initParticles = () => {
+    const container = document.getElementById('heroParticles');
+    if (!container) return;
+
+    const particleCount = 320;
+    // Mostly white, with elegant hints of gold and light green
+    const colors = ['rgba(255, 255, 255, 0.7)', 'rgba(255, 255, 255, 0.5)', 'rgba(255, 255, 255, 0.3)', 'rgba(200, 166, 0, 0.6)', 'rgba(120, 190, 32, 0.4)'];
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+
+      // Random properties
+      const size = Math.random() * 5 + 3; // 3px to 8px
+      const left = Math.random() * 100; // 0% to 100% width
+      const duration = Math.random() * 15 + 10; // 10s to 25s
+      const delay = Math.random() * 20; // Start offset
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${left}%`;
+      particle.style.backgroundColor = color;
+      particle.style.color = color; // Used for box-shadow glow
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `-${delay}s`; // Negative delay to start immediately mid-air
+
+      container.appendChild(particle);
+    }
+  };
+  initParticles();
+
   // 1.5 MOBILE MENU
   const initMobileMenu = () => {
     const menuButton = document.querySelector('.mobileMenuBtn');
@@ -62,6 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const facebookLink = desktopActions.querySelector('.fbNavBtn')?.getAttribute('href') || '#';
     const whatsappLink = desktopActions.querySelector('.header-wa-btn')?.getAttribute('href') || '#';
 
+    // Detect language switch info
+    const langSwitchEl = desktopActions.querySelector('.lang-switch-btn');
+    const langSwitchHref = langSwitchEl?.getAttribute('href') || '#';
+    const langSwitchText = langSwitchEl?.textContent?.trim() || 'English';
+    const isEnglish = document.documentElement.dir === 'ltr';
+    const langLabel = isEnglish ? '🇸🇦 عربي' : '🇬🇧 English';
+
     panel.innerHTML = `
       <div class="mobileNavHeader">
         <a href="${logo.getAttribute('href')}" class="logo">
@@ -70,11 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <button class="mobileNavClose" type="button" aria-label="إغلاق القائمة">✕</button>
       </div>
       <div class="mobileNavLinks">${topLinksMarkup}</div>
-      <div class="mobileNavSectionTitle">برامجنا التعليمية</div>
+      <div class="mobileNavSectionTitle">${isEnglish ? 'Our Programs' : 'برامجنا التعليمية'}</div>
       <div class="mobileNavPrograms">${programLinksMarkup}</div>
       <div class="mobileNavActions">
-        <a href="${facebookLink}" target="_blank" rel="noopener noreferrer" class="mobileNavSocial">فيسبوك</a>
-        <a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global full-width">تواصل عبر واتساب</a>
+        <a href="${langSwitchHref}" class="mobile-lang-btn">${langLabel}</a>
+        <a href="${facebookLink}" target="_blank" rel="noopener noreferrer" class="mobileNavSocial">${isEnglish ? 'Facebook' : 'فيسبوك'}</a>
+        <a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-global full-width">${isEnglish ? 'Contact via WhatsApp' : 'تواصل عبر واتساب'}</a>
       </div>
     `;
 
@@ -178,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const hasPlusPrefix = obj.dataset.originalText.startsWith('+');
       const hasPlusSuffix = obj.dataset.originalText.endsWith('+');
       
-      obj.innerHTML = (hasPlusPrefix ? '+' : '') + currentValue.toLocaleString('ar-EG') + (hasPlusSuffix ? '+' : '');
+      const locale = document.documentElement.dir === 'ltr' ? 'en-US' : 'ar-EG';
+      obj.innerHTML = (hasPlusPrefix ? '+' : '') + currentValue.toLocaleString(locale) + (hasPlusSuffix ? '+' : '');
       
       if (progress < 1) {
         window.requestAnimationFrame(step);
@@ -477,10 +548,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = dotsContainer.querySelectorAll('.dot');
 
     const updateSlider = () => {
-      // In RTL, translateX(100%) moves it left-wards if dir="rtl" is handled by browser correctly.
-      // Usually, with LTR indices in an RTL container, positive translateX moves it right.
-      // We want to move it to the right for the next item (index 1 should show item 2).
-      track.style.transform = `translateX(${currentIndex * 100}%)`;
+      const isEn = document.documentElement.lang === 'en';
+      const directionMultiplier = isEn ? -1 : 1;
+      track.style.transform = `translateX(${currentIndex * 100 * directionMultiplier}%)`;
       
       // Update dots
       dots.forEach((dot, idx) => {
@@ -521,4 +591,226 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initTestimonialSlider();
+
+  // 9. CONTACT FORM TO WHATSAPP
+  const initContactForm = () => {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    const whatsappPhone = '201556509755';
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const fullName = (formData.get('fullName') || '').toString().trim();
+      const phone = (formData.get('phone') || '').toString().trim();
+      const country = (formData.get('country') || '').toString().trim();
+      const interest = (formData.get('interest') || '').toString().trim();
+      const message = (formData.get('message') || '').toString().trim();
+
+      const isEn = document.documentElement.lang === 'en';
+      let whatsappMessage = '';
+
+      if (isEn) {
+        whatsappMessage = [
+          'Hello, I would like to contact Kholafa Academy.',
+          '',
+          `Name: ${fullName}`,
+          `Phone: ${phone}`,
+          `Country: ${country}`,
+          `Interest: ${interest}`,
+          `Message: ${message || 'None'}`
+        ].join('\n');
+      } else {
+        whatsappMessage = [
+          'السلام عليكم، أود التواصل مع إدارة الأكاديمية.',
+          '',
+          `الاسم: ${fullName}`,
+          `رقم الهاتف: ${phone}`,
+          `الدولة: ${country}`,
+          `نوع الطلب: ${interest}`,
+          `تفاصيل إضافية: ${message || 'لا يوجد'}`
+        ].join('\n');
+      }
+
+      const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  };
+
+  // 10. FREE TRIAL MODAL (INJECTED)
+  const initFreeTrialModal = () => {
+    const isEn = document.documentElement.lang === 'en';
+    
+    const arHtml = `
+      <button class="btn-free-trial-float" id="btnFreeTrialFloat" aria-label="احجز حصتك المجانية الان">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        حجز الحصة المجانية الان
+      </button>
+
+      <div class="free-trial-modal-overlay" id="freeTrialModalOverlay">
+        <div class="free-trial-modal">
+          <button class="ft-close-btn" id="ftCloseBtn" aria-label="إغلاق">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          
+          <div class="ft-form-side">
+            <h3 class="ft-title">احجز حصتك المجانية</h3>
+            <p class="ft-desc">املأ النموذج وسيتم التواصل معك لتحديد موعد حصتك التجريبية مع أفضل معلمينا المعتمدين.</p>
+            
+            <form id="freeTrialForm">
+              <div class="ft-form-group">
+                <input type="text" name="ftName" class="ft-input" placeholder="الاسم بالكامل (مثال: أحمد محمد)" required>
+              </div>
+              <div class="ft-form-group">
+                <input type="email" name="ftEmail" class="ft-input" placeholder="البريد الإلكتروني (مثال: ahmed@gmail.com)" required>
+              </div>
+              <div class="ft-form-group">
+                <input type="tel" name="ftPhone" class="ft-input" placeholder="رقم الهاتف أو الواتساب (مطلوب)" required>
+              </div>
+              <div class="ft-form-group">
+                <select name="ftCourse" class="ft-input ft-select" required>
+                  <option value="" disabled selected>اختر البرنامج التدريبي</option>
+                  <option value="أساسيات القراءة">أساسيات القراءة</option>
+                  <option value="أحكام التجويد">أحكام التجويد</option>
+                  <option value="حفظ ومراجعة القرآن">حفظ ومراجعة القرآن</option>
+                  <option value="الإجازة والسند">الإجازة والسند</option>
+                  <option value="اللغة العربية">اللغة العربية</option>
+                  <option value="الدراسات الإسلامية">الدراسات الإسلامية</option>
+                </select>
+              </div>
+              <div class="ft-form-group">
+                <textarea name="ftNotes" class="ft-input" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+              </div>
+              <button type="submit" class="ft-submit-btn">
+                تقديم الطلب الآن
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+          
+          <div class="ft-image-side">
+            <img src="${isEn ? '../assets/free-trial-img.png' : 'assets/free-trial-img.png'}" alt="الحصة المجانية - أكاديمية الخلفاء الراشدين">
+          </div>
+        </div>
+      </div>
+    `;
+
+    const enHtml = `
+      <button class="btn-free-trial-float" id="btnFreeTrialFloat" aria-label="Book Free Trial Now">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        Book Free Trial
+      </button>
+
+      <div class="free-trial-modal-overlay" id="freeTrialModalOverlay">
+        <div class="free-trial-modal">
+          <button class="ft-close-btn" id="ftCloseBtn" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          
+          <div class="ft-form-side">
+            <h3 class="ft-title">Book Your Free Trial</h3>
+            <p class="ft-desc">Fill out the form and we will contact you to schedule your free trial lesson with our certified tutors.</p>
+            
+            <form id="freeTrialForm">
+              <div class="ft-form-group">
+                <input type="text" name="ftName" class="ft-input" placeholder="Full Name (e.g. Ahmed Ali)" required>
+              </div>
+              <div class="ft-form-group">
+                <input type="email" name="ftEmail" class="ft-input" placeholder="Email Address (e.g. ahmed@gmail.com)" required>
+              </div>
+              <div class="ft-form-group">
+                <input type="tel" name="ftPhone" class="ft-input" placeholder="Phone/WhatsApp Number (required)" required>
+              </div>
+              <div class="ft-form-group">
+                <select name="ftCourse" class="ft-input ft-select" required>
+                  <option value="" disabled selected>Select Program</option>
+                  <option value="Reading Basics">Reading Basics</option>
+                  <option value="Tajweed Rules">Tajweed Rules</option>
+                  <option value="Quran Memorization">Quran Memorization</option>
+                  <option value="Ijazah & Sanad">Ijazah & Sanad</option>
+                  <option value="Arabic Language">Arabic Language</option>
+                  <option value="Islamic Studies">Islamic Studies</option>
+                </select>
+              </div>
+              <div class="ft-form-group">
+                <textarea name="ftNotes" class="ft-input" placeholder="Additional Notes (Optional)"></textarea>
+              </div>
+              <button type="submit" class="ft-submit-btn">
+                Submit Request
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+          
+          <div class="ft-image-side">
+            <img src="${isEn ? '../assets/free-trial-img.png' : 'assets/free-trial-img.png'}" alt="Free Trial - Kholafa Academy">
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Append to body
+    document.body.insertAdjacentHTML('beforeend', isEn ? enHtml : arHtml);
+
+    // Elements
+    const openBtn = document.getElementById('btnFreeTrialFloat');
+    const closeBtn = document.getElementById('ftCloseBtn');
+    const overlay = document.getElementById('freeTrialModalOverlay');
+    const form = document.getElementById('freeTrialForm');
+
+    // Logic
+    const openModal = () => overlay.classList.add('active');
+    const closeModal = () => overlay.classList.remove('active');
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Form Submit (WhatsApp)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get('ftName');
+      const email = formData.get('ftEmail');
+      const phone = formData.get('ftPhone');
+      const course = formData.get('ftCourse');
+      const notes = formData.get('ftNotes') || 'لا يوجد';
+
+      const whatsappPhone = '201556509755';
+      let msg = '';
+      if (isEn) {
+        msg = [
+          'Hello, I would like to book a free trial lesson.',
+          '',
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${phone}`,
+          `Program: ${course}`,
+          `Notes: ${notes}`
+        ].join('\n');
+      } else {
+        msg = [
+          'السلام عليكم، أود حجز حصة تجريبية مجانية.',
+          '',
+          `الاسم: ${name}`,
+          `البريد: ${email}`,
+          `رقم الهاتف: ${phone}`,
+          `البرنامج: ${course}`,
+          `ملاحظات: ${notes}`
+        ].join('\n');
+      }
+
+      window.open(`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+      closeModal();
+      form.reset();
+    });
+  };
+
+  initFreeTrialModal();
+
+  initContactForm();
 });
