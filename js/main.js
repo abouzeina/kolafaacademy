@@ -573,8 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider();
     };
 
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', prevSlide);
+    if (prevBtn) prevBtn.addEventListener('click', nextSlide);
 
     // Auto rotate every 8s
     let autoSlideInterval = setInterval(nextSlide, 8000);

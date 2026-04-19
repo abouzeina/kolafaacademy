@@ -96,3 +96,22 @@ body {
   left: -60px;
   transform: translateY(-50%) rotate(180deg);
 }
+
+/* Fix LTR Text Alignment */
+.dropdown-link,
+.home-card-content,
+.authorName,
+.authorCountry,
+.folioHeaderButton {
+  text-align: left !important;
+}
+
+.testimonialText,
+.gatewayContent {
+  text-align: left;
+}
+
+.home-card-btn {
+  align-self: flex-start;
+}
+
