@@ -173,11 +173,71 @@
 }
 
 [dir="rtl"] .lang-switch-btn {
-  order: 2; /* Moves to the far left visually in RTL */
+  order: 2;
 }
 
 [dir="ltr"] .lang-switch-btn {
-  order: 2; /* Moves to the far right of the actions group in LTR */
+  order: 2;
+}
+
+/* Language Switcher - Toggle Design */
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: 'Outfit', var(--font-ibm-plex-sans-arabic), sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  direction: ltr; /* Ensure consistent visual order: EN [toggle] عربي */
+}
+
+.lang-switch-btn:hover {
+  opacity: 0.9;
+}
+
+.lang-text {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.lang-text.active {
+  opacity: 1;
+  color: var(--color-primary-dark);
+}
+
+.toggle-pill {
+  width: 44px;
+  height: 24px;
+  background-color: rgba(11, 107, 53, 0.15);
+  border: 1px solid rgba(11, 107, 53, 0.3);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: all 0.3s ease;
+}
+
+.toggle-circle {
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-primary-dark);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.3s ease;
+  transform: translateX(0);
+}
+
+.toggle-pill.ar-active .toggle-circle {
+  transform: translateX(20px);
+  background-color: var(--color-gold-luxury);
+}
+
+.toggle-pill.en-active .toggle-circle {
+  transform: translateX(0);
+  background-color: var(--color-primary-dark);
 }
 
 .fbNavBtn {
