@@ -691,7 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           
           <div class="ft-image-side">
-            <img src="${isEn ? '../assets/free-trial-img.png' : 'assets/free-trial-img.png'}" alt="الحصة المجانية - أكاديمية الخلفاء الراشدين">
+            <img src="${isEn ? '../assets/free-trial-img.webp' : 'assets/free-trial-img.webp'}" alt="الحصة المجانية - أكاديمية الخلفاء الراشدين">
           </div>
         </div>
       </div>
@@ -745,7 +745,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           
           <div class="ft-image-side">
-            <img src="${isEn ? '../assets/free-trial-img.png' : 'assets/free-trial-img.png'}" alt="Free Trial - Kholafa Academy">
+            <img src="${isEn ? '../assets/free-trial-img.webp' : 'assets/free-trial-img.webp'}" alt="Free Trial - Kholafa Academy">
           </div>
         </div>
       </div>

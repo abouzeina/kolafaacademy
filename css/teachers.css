@@ -273,10 +273,10 @@
 }
 
 .matchingVisual {
-  flex: 1;
-  height: clamp(280px, 45vw, 500px);
+  flex: 0 0 clamp(280px, 40vw, 450px);
+  height: clamp(280px, 40vw, 450px);
   background-color: var(--color-primary-darker);
-  border-radius: var(--arch-radius) var(--sharp-radius) var(--arch-radius) var(--sharp-radius);
+  border-radius: 50%;
   box-shadow: var(--shadow-deep-green);
   position: relative;
   display: flex;
@@ -284,6 +284,7 @@
   justify-content: center;
   color: rgba(255,255,255,0.4);
   font-family: var(--font-alexandria);
+  overflow: hidden;
 }
 
 /* ================== Institutional Trust Block ================== */
