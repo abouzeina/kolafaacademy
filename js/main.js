@@ -681,6 +681,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 </select>
               </div>
               <div class="ft-form-group">
+                <select name="ftPackage" class="ft-input ft-select">
+                  <option value="" disabled selected>اختر الباقة السعرية (اختياري)</option>
+                  <optgroup label="باقات 30 دقيقة للحصة">
+                    <option value="يومان أسبوعيًا - 30 دقيقة ($36 شهرياً)">يومان أسبوعيًا ($36 شهرياً)</option>
+                    <option value="3 أيام أسبوعيًا - 30 دقيقة ($50 شهرياً)">3 أيام أسبوعيًا ($50 شهرياً)</option>
+                    <option value="4 أيام أسبوعيًا - 30 دقيقة ($65 شهرياً)">4 أيام أسبوعيًا ($65 شهرياً)</option>
+                    <option value="5 أيام أسبوعيًا - 30 دقيقة ($75 شهرياً)">5 أيام أسبوعيًا ($75 شهرياً)</option>
+                  </optgroup>
+                  <optgroup label="باقات 45 دقيقة للحصة">
+                    <option value="يومان أسبوعيًا - 45 دقيقة ($54 شهرياً)">يومان أسبوعيًا ($54 شهرياً)</option>
+                    <option value="3 أيام أسبوعيًا - 45 دقيقة ($75 شهرياً)">3 أيام أسبوعيًا ($75 شهرياً)</option>
+                    <option value="4 أيام أسبوعيًا - 45 دقيقة ($96 شهرياً)">4 أيام أسبوعيًا ($96 شهرياً)</option>
+                    <option value="5 أيام أسبوعيًا - 45 دقيقة ($113 شهرياً)">5 أيام أسبوعيًا ($113 شهرياً)</option>
+                  </optgroup>
+                  <optgroup label="باقات 60 دقيقة للحصة">
+                    <option value="يومان أسبوعيًا - 60 دقيقة ($72 شهرياً)">يومان أسبوعيًا ($72 شهرياً)</option>
+                    <option value="3 أيام أسبوعيًا - 60 دقيقة ($100 شهرياً)">3 أيام أسبوعيًا ($100 شهرياً)</option>
+                    <option value="4 أيام أسبوعيًا - 60 دقيقة ($130 شهرياً)">4 أيام أسبوعيًا ($130 شهرياً)</option>
+                    <option value="5 أيام أسبوعيًا - 60 دقيقة ($150 شهرياً)">5 أيام أسبوعيًا ($150 شهرياً)</option>
+                  </optgroup>
+                  <option value="غير محدد / أحتاج مساعدة">غير محدد / أحتاج مساعدة</option>
+                </select>
+              </div>
+              <div class="ft-form-group">
                 <textarea name="ftNotes" class="ft-input" placeholder="ملاحظات إضافية (اختياري)"></textarea>
               </div>
               <button type="submit" class="ft-submit-btn">
@@ -735,6 +759,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 </select>
               </div>
               <div class="ft-form-group">
+                <select name="ftPackage" class="ft-input ft-select">
+                  <option value="" disabled selected>Select Pricing Package (Optional)</option>
+                  <optgroup label="30 Minutes/Session">
+                    <option value="2 days/week - 30 mins ($36/mo)">2 days/week ($36/mo)</option>
+                    <option value="3 days/week - 30 mins ($50/mo)">3 days/week ($50/mo)</option>
+                    <option value="4 days/week - 30 mins ($65/mo)">4 days/week ($65/mo)</option>
+                    <option value="5 days/week - 30 mins ($75/mo)">5 days/week ($75/mo)</option>
+                  </optgroup>
+                  <optgroup label="45 Minutes/Session">
+                    <option value="2 days/week - 45 mins ($54/mo)">2 days/week ($54/mo)</option>
+                    <option value="3 days/week - 45 mins ($75/mo)">3 days/week ($75/mo)</option>
+                    <option value="4 days/week - 45 mins ($96/mo)">4 days/week ($96/mo)</option>
+                    <option value="5 days/week - 45 mins ($113/mo)">5 days/week ($113/mo)</option>
+                  </optgroup>
+                  <optgroup label="60 Minutes/Session">
+                    <option value="2 days/week - 60 mins ($72/mo)">2 days/week ($72/mo)</option>
+                    <option value="3 days/week - 60 mins ($100/mo)">3 days/week ($100/mo)</option>
+                    <option value="4 days/week - 60 mins ($130/mo)">4 days/week ($130/mo)</option>
+                    <option value="5 days/week - 60 mins ($150/mo)">5 days/week ($150/mo)</option>
+                  </optgroup>
+                  <option value="Not decided / Need help">Not decided / Need help</option>
+                </select>
+              </div>
+              <div class="ft-form-group">
                 <textarea name="ftNotes" class="ft-input" placeholder="Additional Notes (Optional)"></textarea>
               </div>
               <button type="submit" class="ft-submit-btn">
@@ -778,7 +826,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = formData.get('ftEmail');
       const phone = formData.get('ftPhone');
       const course = formData.get('ftCourse');
-      const notes = formData.get('ftNotes') || 'لا يوجد';
+      const packageOpt = formData.get('ftPackage') || (isEn ? 'Not specified' : 'لم يُحدد');
+      const notes = formData.get('ftNotes') || (isEn ? 'None' : 'لا يوجد');
 
       const whatsappPhone = '201556509755';
       let msg = '';
@@ -790,6 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
           `Email: ${email}`,
           `Phone: ${phone}`,
           `Program: ${course}`,
+          `Preferred Package: ${packageOpt}`,
           `Notes: ${notes}`
         ].join('\n');
       } else {
@@ -800,6 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
           `البريد: ${email}`,
           `رقم الهاتف: ${phone}`,
           `البرنامج: ${course}`,
+          `الباقة المفضلة: ${packageOpt}`,
           `ملاحظات: ${notes}`
         ].join('\n');
       }
@@ -813,4 +864,149 @@ document.addEventListener('DOMContentLoaded', () => {
   initFreeTrialModal();
 
   initContactForm();
+
+  // 11. AI CHATBOT WIDGET
+  const initChatbot = () => {
+    const isEn = document.documentElement.lang === 'en';
+    
+    // UI Text
+    const texts = {
+      title: isEn ? 'Kholafa Assistant' : 'مساعد الخلفاء',
+      status: isEn ? 'Online' : 'متصل الآن',
+      inputPlaceholder: isEn ? 'Type your message...' : 'اكتب رسالتك هنا...',
+      welcomeMsg: isEn 
+        ? 'Hello! I am the Kholafa Academy Assistant. How can I help you today?' 
+        : 'أهلاً بك! أنا المساعد الآلي لأكاديمية الخلفاء. كيف يمكنني مساعدتك اليوم؟',
+      fallbackMsg: isEn
+        ? 'Please contact our customer service directly via WhatsApp for more details.'
+        : 'يرجى التواصل مع خدمة العملاء مباشرة عبر واتساب لمزيد من التفاصيل الدقيقة.',
+      replies: isEn
+        ? [
+            { text: 'Programs', query: 'programs' },
+            { text: 'Pricing', query: 'pricing' },
+            { text: 'Contact Human', query: 'whatsapp' }
+          ]
+        : [
+            { text: 'البرامج المتاحة', query: 'البرامج' },
+            { text: 'الأسعار والباقات', query: 'الأسعار' },
+            { text: 'تحدث مع موظف', query: 'واتساب' }
+          ]
+    };
+
+    const chatbotHtml = `
+      <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-panel" id="chatbotPanel">
+          <div class="chatbot-header">
+            <div class="bot-avatar">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+            </div>
+            <div class="bot-info">
+              <h4>${texts.title}</h4>
+              <p><span class="status-dot"></span> ${texts.status}</p>
+            </div>
+          </div>
+          <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-msg bot">${texts.welcomeMsg}</div>
+            <div class="chat-quick-replies">
+              ${texts.replies.map(r => `<button class="quick-reply-btn" data-query="${r.query}">${r.text}</button>`).join('')}
+            </div>
+          </div>
+          <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="${texts.inputPlaceholder}" />
+            <button class="chatbot-send-btn" id="chatbotSendBtn" aria-label="Send">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </div>
+        </div>
+        <button class="chatbot-btn" id="chatbotToggleBtn" aria-label="Toggle Chat">
+          <svg class="chat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <svg class="close-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', chatbotHtml);
+
+    const toggleBtn = document.getElementById('chatbotToggleBtn');
+    const panel = document.getElementById('chatbotPanel');
+    const messagesContainer = document.getElementById('chatbotMessages');
+    const input = document.getElementById('chatbotInput');
+    const sendBtn = document.getElementById('chatbotSendBtn');
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('active');
+      toggleBtn.classList.toggle('open');
+      if(panel.classList.contains('active')) {
+        input.focus();
+      }
+    });
+
+    const addMessage = (text, isUser = false) => {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${isUser ? 'user' : 'bot'}`;
+      // Allow HTML in bot messages for links
+      if(isUser) {
+        msgDiv.textContent = text;
+      } else {
+        msgDiv.innerHTML = text;
+      }
+      messagesContainer.appendChild(msgDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    };
+
+    const handleBotResponse = (query) => {
+      const q = query.toLowerCase();
+      let response = texts.fallbackMsg;
+
+      if(q.includes('سعر') || q.includes('اسعار') || q.includes('باقات') || q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('بكم')) {
+        response = isEn 
+          ? 'Our plans start from $36/month. You can view all our packages on the <a href="pricing.html" style="color:var(--color-primary-dark); font-weight:bold;">Pricing Page</a>.'
+          : 'تبدأ باقاتنا من 36 دولار شهرياً. يمكنك الاطلاع على كافة الأسعار عبر <a href="pricing.html" style="color:var(--color-primary-dark); font-weight:bold;">صفحة الأسعار</a>.';
+      } else if (q.includes('برامج') || q.includes('تحفيظ') || q.includes('تجويد') || q.includes('program') || q.includes('courses')) {
+        response = isEn
+          ? 'We offer various programs including Quran Reading, Tajweed, Memorization, Ijazah, and Arabic Language. Check our <a href="programs.html" style="color:var(--color-primary-dark); font-weight:bold;">Programs Page</a>.'
+          : 'نقدم برامج متنوعة مثل: أساسيات القراءة، التجويد، الحفظ، الإجازة، واللغة العربية. شاهد التفاصيل في <a href="programs.html" style="color:var(--color-primary-dark); font-weight:bold;">صفحة البرامج</a>.';
+      } else if (q.includes('واتس') || q.includes('تواصل') || q.includes('whatsapp') || q.includes('human') || q.includes('contact') || q.includes('موظف')) {
+        response = isEn
+          ? 'You can chat with our team directly on WhatsApp here: <a href="https://wa.me/201556509755" target="_blank" style="color:#25D366; font-weight:bold;">Click here to open WhatsApp</a>.'
+          : 'يمكنك التحدث مع فريقنا مباشرة عبر واتساب من هنا: <a href="https://wa.me/201556509755" target="_blank" style="color:#25D366; font-weight:bold;">اضغط هنا لفتح الواتساب</a>.';
+      }
+
+      setTimeout(() => {
+        addMessage(response, false);
+      }, 500);
+    };
+
+    const handleSend = () => {
+      const text = input.value.trim();
+      if(!text) return;
+      
+      addMessage(text, true);
+      input.value = '';
+      
+      // Hide quick replies if they exist
+      const qrDiv = messagesContainer.querySelector('.chat-quick-replies');
+      if (qrDiv) qrDiv.style.display = 'none';
+
+      handleBotResponse(text);
+    };
+
+    sendBtn.addEventListener('click', handleSend);
+    input.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') handleSend();
+    });
+
+    // Delegate quick replies
+    document.addEventListener('click', (e) => {
+      if(e.target && e.target.classList.contains('quick-reply-btn')) {
+        const query = e.target.getAttribute('data-query');
+        const text = e.target.textContent;
+        addMessage(text, true);
+        e.target.parentElement.style.display = 'none';
+        handleBotResponse(query);
+      }
+    });
+  };
+
+  initChatbot();
 });
