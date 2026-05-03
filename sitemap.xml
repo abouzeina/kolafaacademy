@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Arabic Pages -->
+  <url>
+    <loc>https://kholafaacademy.online/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://kholafaacademy.online/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kholafaacademy.online/en/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/programs.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/pricing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/teachers.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/contact.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/legacy.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url><loc>https://kholafaacademy.online/program-reading.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/program-tajweed.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/program-hifz.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/program-ijazah.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/program-arabic.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/program-islamic.html</loc><priority>0.8</priority></url>
+
+  <!-- English Pages -->
+  <url>
+    <loc>https://kholafaacademy.online/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://kholafaacademy.online/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kholafaacademy.online/en/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/en/programs.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/en/pricing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/en/teachers.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/en/contact.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kholafaacademy.online/en/legacy.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url><loc>https://kholafaacademy.online/en/program-reading.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/en/program-tajweed.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/en/program-hifz.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/en/program-ijazah.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/en/program-arabic.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kholafaacademy.online/en/program-islamic.html</loc><priority>0.8</priority></url>
+</urlset>
